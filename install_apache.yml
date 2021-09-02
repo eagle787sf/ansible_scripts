@@ -2,16 +2,20 @@
 - hosts: all
   become: true
   tasks:
+ 
 
-  - name: update repository index
-    dnf: 
+  - name: install apache and php  packages for Centos and Alma Linuxes 
+    dnf:
+      name: 
+        - httpd
+        - php
+      state: latest
       update_cache: yes
-
-  - name: install apache2 package 
-    dnf:
-      name: httpd
+    
+   - name: install apache and PHP packages for Ubuntu Linux
+     apt:
+      name: 
+        - apache2
+        - php
       state: latest
-  - name: add php support for apache
-    dnf:
-      name: php
-      state: latest
+      update_cache: yes  
